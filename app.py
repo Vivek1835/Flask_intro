@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, send_file
 
 app = Flask(__name__)
 
@@ -6,6 +6,10 @@ app = Flask(__name__)
 def hello_world():
     print("Hello, World!_print")
     return "<h1>Hello, World!</h1>"
+
+@app.route('/html')
+def html():
+    return send_file('index.html')
 
 @app.route('/about')
 def about():
